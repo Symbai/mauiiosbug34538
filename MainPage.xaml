@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp4.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid Grid.Row="1">
+        <ListView
+            x:Name="ListView1"
+            Margin="20,0,20,0"
+            IsGroupingEnabled="True"
+            SelectionMode="None">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="22"
+                            Text="{Binding Name}"
+                            TextColor="{StaticResource Gray400}"
+                            VerticalTextAlignment="Center" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Column="1"
+                                Margin="10,0,10,0"
+                                FontAttributes="Bold"
+                                LineBreakMode="TailTruncation"
+                                Text="{Binding Name}"
+                                VerticalOptions="Center" />
+                            <Switch Grid.Column="2" IsToggled="{Binding Enabled}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</ContentPage>
